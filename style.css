@@ -20,12 +20,28 @@ a {
   height: auto;
 }
 
-.srkn {
+#srkn,
+#onigiri {
   max-width: 80px;
   height: auto;
   position: fixed;
   left: -90px;
   top: 50px;
+}
+
+.srkn {
+  max-width: 80px;
+  height: auto;
+  animation: rotateZ 1s linear 0s infinite;
+}
+
+@keyframes rotateZ {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
 }
 
 .svg {
