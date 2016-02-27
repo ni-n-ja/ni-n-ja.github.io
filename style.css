@@ -4,11 +4,17 @@ body {
   overflow: hidden;
 }
 
+#main {
+  margin: 0 auto;
+  width: 80%;
+}
+
 a {
   text-decoration: none;
 }
 
 #logo {
+  margin-top: 32px;
   width: 100%;
   vertical-align: middle;
   text-align: center;

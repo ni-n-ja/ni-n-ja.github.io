@@ -1,3 +1,4 @@
+#!/usr/bin/node
 var connect = require('connect'),
 	serveStatic = require('serve-static');
 
