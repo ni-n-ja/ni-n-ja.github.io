@@ -1,20 +1,19 @@
 @charset "utf-8";
 body {
-  background-color: #00aad4;
+  background-color: #0288D1;
   overflow: hidden;
 }
 
 #main {
-  margin: 0 auto;
-  width: 80%;
-}
+  margin: 32px auto;
+  width: 85%;
+ }
 
 a {
   text-decoration: none;
 }
 
 #logo {
-  margin-top: 32px;
   width: 100%;
   vertical-align: middle;
   text-align: center;
