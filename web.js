@@ -20,11 +20,10 @@ $(document).ready(function() {
     });
 
     $("html").bind("click", function(e) {
-
         if ($("#srkn").offset().left <= -90 && $("#onigiri").offset().left <= -90) {
             var rand = Math.floor(Math.random() * 100);
             if (rand < 80) {
-                $("#srkn").css("top", e.pageY);
+                $("#srkn").css("top", (e.clientY - 40) + 'px');
                 $("#srkn").velocity({
                     "translateX": $(window).width() + 90,
                     "easing": "easeOutQuad"
@@ -32,7 +31,7 @@ $(document).ready(function() {
                     "translateX": 0
                 }, 0);
             } else {
-                $("#onigiri").css("top", e.pageY);
+                $("#onigiri").css("top", (e.clientY - 40) + 'px');
                 $("#onigiri").velocity({
                     "translateX": $(window).width() + 90,
                     "easing": "easeOutQuad"
