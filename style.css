@@ -135,7 +135,7 @@ a {
 .charPath {
     fill: #FFF;
     stroke: #FFF;
-    stroke-width: 3;
+    stroke-width: .5;
     stroke-miterlimit: 2;
     stroke-dasharray: none;
     clip-rule: nonzero;
