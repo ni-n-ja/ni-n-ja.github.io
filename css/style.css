@@ -4,13 +4,10 @@ a {
 }
 #logo {
     margin: 32px auto;
-    width: 85%;
     vertical-align: middle;
     text-align: center;
 }
 #ninja {
-    width: 100%;
-    max-width: 2000px;
     height: auto;
     opacity: 1;
     isolation: auto;
@@ -35,7 +32,6 @@ a {
     enable-background: accumulate
 }
 .art {
-    width: 85%;
     margin: 10px auto;
 }
 .path {
@@ -90,15 +86,12 @@ a {
     vertical-align: middle;
     margin-right: 5px;
     width: 3rem;
-    height: 3rem;
+    height: auto;
 }
 .svg2 {
     vertical-align: middle;
     margin-left: 5px;
     height: 3rem;
-}
-.moji {
-    height: 4rem;
 }
 * {
     box-sizing: border-box;
