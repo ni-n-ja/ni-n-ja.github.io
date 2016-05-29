@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $(".moji").hover(function() {
+    $("a").hover(function() {
         $("#" + $(this).attr("id") + "svg").stop().velocity({
             "fill-opacity": 1,
             "stroke-opacity": 0
