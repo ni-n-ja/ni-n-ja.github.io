@@ -110,10 +110,10 @@
         </article>
 
         <div id="srkn">
-            <img class="srkn" src="svg_minified/suriken.svg" alt=""/>
+            <img class="srkn" src="image/suriken.svg" alt=""/>
         </div>
         <div id="onigiri">
-            <img class="srkn" src="svg_minified/onigiri.svg" alt=""/>
+            <img class="srkn" src="image/onigiri.svg" alt=""/>
         </div>
     </body>
 </html>
