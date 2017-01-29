@@ -2,16 +2,13 @@
 a {
     text-decoration: none;
 }
-
 * {
     box-sizing: border-box;
 }
-
 html, body {
     background-color: #0288D1;
     overflow: hidden;
 }
-
 #logo {
     position: relative;
     margin: 1% auto;
@@ -19,7 +16,6 @@ html, body {
     text-align: center;
     max-width: 1170px;
 }
-
 @media screen and (max-height:600px) {
     #logo {
         width: auto;
@@ -35,9 +31,9 @@ html, body {
         width: 2rem;
         height: 2rem;
         fill: #FFF;
+        stroke: #FFF;
     }
 }
-
 @media screen and (min-height:601px) {
     #logo {
         width: 100%;
@@ -53,9 +49,9 @@ html, body {
         width: 3rem;
         height: 3rem;
         fill: #FFF;
+        stroke: #FFF;
     }
 }
-
 #ninja {
     width: 100%;
     color: #000;
@@ -64,14 +60,12 @@ html, body {
     stroke-width: .265;
     stroke-miterlimit: 100;
 }
-
 #ninja2 {
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
 }
-
 .art {
     width: 100%;
     max-width: 1170px;
@@ -79,7 +73,17 @@ html, body {
     text-align: center;
     margin: 0 auto;
 }
-
 .section {
     margin: 2% 0;
+}
+.svg {
+    fill-opacity: 0;
+    stroke-width: .5rem;
+    transition: fill-opacity .3s ease, stroke-width .1s ease, width 1s ease, height 1s ease;
+}
+.svg:hover {
+    fill-opacity: 1;
+    stroke-width: 0;
+    width: 4rem;
+    height: 4rem;
 }
