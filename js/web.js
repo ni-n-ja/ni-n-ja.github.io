@@ -1,3 +1,4 @@
-window.onload = function() {
-    console.log("!");
+var  XHR = new XMLHttpRequest();
+window.onload = function () {
+
 }
