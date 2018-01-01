@@ -5,8 +5,8 @@ var browserSync = require('browser-sync');
 var svgmin = require('gulp-svgmin');
 var del = require('del');
 
-gulp.task('reviveSVG', function() {
-    del(['svg_minified/**/*.svg'], function(err, deleted) {
+gulp.task('reviveSVG', function () {
+    del(['svg_minified/**/*.svg'], function (err, deleted) {
         console.log('deleted: ' + deleted.join(','));
     });
     gulp.src('svg/**/*.svg')
@@ -14,9 +14,9 @@ gulp.task('reviveSVG', function() {
         .pipe(gulp.dest('./svg_minified'));
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
     browserSync({
-        files: ['js/**/*.js', '**/*.html', 'css/**/*.css'],
+        files: ['service-worker.js', 'js/**/*.js', '**/*.html', 'css/**/*.css'],
         server: {
             baseDir: "./"
         },
@@ -25,6 +25,6 @@ gulp.task('browser-sync', function() {
     });
 });
 
-gulp.task('default', ['reviveSVG', 'browser-sync'], function() {
+gulp.task('default', ['reviveSVG', 'browser-sync'], function () {
     gulp.watch(['svg/**/*.svg'], ['reviveSVG', 'browser-sync']);
 });
