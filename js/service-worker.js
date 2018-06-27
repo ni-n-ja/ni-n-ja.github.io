@@ -1,6 +1,6 @@
 'use strict'
 
-const SW_VERSION_UUID = 'd4af2a94-0b1a-4bcc-92cc-85bcc51bc6a8';
+const SW_VERSION_UUID = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
 
 const urlsToCache = [
     './index.html',
