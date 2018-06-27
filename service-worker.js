@@ -1,7 +1,14 @@
 'use strict'
 
-const SW_VERSION_UUID = '4ec674c5-3f14-4bd8-8ae5-598a1972487c';
-const CACHE_NAME = Date.now().toString();
+const SW_VERSION_UUID = '394dd7fd-c01e-406f-a705-5966d8540225';
+
+const now = new Date(Date.now());
+const CACHE_NAME = now.getFullYear().toString() + "/" +
+    (now.getMonth() + 1).toString() + "/" +
+    (now.getDate()).toString() + "/" +
+    (now.getHours()).toString() + ":" +
+    (now.getMinutes()).toString() + ":" +
+    (now.getSeconds()).toString();
 const urlsToCache = [
     './index.html',
     './css/style.css',
