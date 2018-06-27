@@ -1,7 +1,7 @@
 'use strict'
 
 const SW_VERSION_UUID = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
-
+const CACHE_NAME = Date.now().toString();
 const urlsToCache = [
     './index.html',
     './css/style.css',
@@ -10,24 +10,25 @@ const urlsToCache = [
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open(SW_VERSION_UUID).then((cache) => {
+        caches.open(CACHE_NAME).then((cache) => {
             return cache.addAll(urlsToCache);
-        })
+        }).then(skipWaiting())
     );
 });
 
 self.addEventListener('activate', (event) => {
     event.waitUntil(
-        caches.keys().then((cacheVersionsArray) => {
-            return Promise.all(
-                cacheVersionsArray.map((cacheVersion) => {
-                    if (cacheVersion !== SW_VERSION_UUID) {
-                        return caches.delete(cacheVersion);
-                    }
-                })
-            );
-        })
-    );
+        clients.claim().then(
+            caches.keys().then((cacheNames) => {
+                return Promise.all(
+                    cacheNames.map((cacheName) => {
+                        if (cacheName !== CACHE_NAME) {
+                            return caches.delete(cacheName);
+                        }
+                    })
+                )
+            })
+        ));
 });
 
 self.addEventListener('fetch', (event) => {
@@ -43,7 +44,7 @@ self.addEventListener('fetch', (event) => {
                             return response;
                         }
                         let responseToCache = response.clone();
-                        caches.open(SW_VERSION_UUID).then((cache) => {
+                        caches.open(CACHE_NAME).then((cache) => {
                             cache.put(event.request, responseToCache);
                         }).catch(e => {
                             console.error(e);
@@ -53,4 +54,4 @@ self.addEventListener('fetch', (event) => {
             }
         })
     );
-});
+})
