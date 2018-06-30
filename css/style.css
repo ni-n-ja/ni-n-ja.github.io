@@ -19,6 +19,12 @@ a {
     text-decoration: none;
 }
 
+@media print {
+    #canvas {
+        display: none;
+    }
+}
+
 .container {
     position: relative;
     margin: 0 auto;
@@ -30,13 +36,28 @@ a {
 }
 
 .QRcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
     width: 25mm;
     height: 25mm;
     margin: 0 auto;
 }
 
-.QR {
+#QR {
     margin: 0;
+    width: 25mm;
+    height: 25mm;
+}
+
+#canvas {
+    /* display: none; */
+    background-color: rgba(251, 251, 251, 1);
+    position: absolute;
+    width: 40mm;
+    height: 40mm;
+    z-index: 2;
 }
 
 .svg {
