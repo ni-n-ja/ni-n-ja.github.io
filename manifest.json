@@ -3,8 +3,10 @@
     "short_name": "ni_n_ja",
     "start_url": "/index.html",
     "display": "fullscreen",
-    "orientetion": "portrait",
+    "orientation": "portrait",
     "scope": "/",
+    "background_color": "#FBFBFB",
+    "theme_color": "#252525",
     "icons": [{
         "src": "image/48.png",
         "sizes": "48x48"
