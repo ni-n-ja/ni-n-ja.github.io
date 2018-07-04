@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var svgmin = require('gulp-svgmin');
 var replace = require('gulp-replace');
+var qr = require("qrcode-terminal");
 var del = require('del');
 
 var generateUuid = () => {
@@ -41,7 +42,7 @@ gulp.task('reviveSVG', () => {
 });
 
 gulp.task('browser-sync', () => {
-    browserSync({
+    const instance = browserSync({
         files: ['js/**/*.js', '**/*.html', 'css/**/*.css', '!js/service-worker.js'],
         server: {
             baseDir: "./"
@@ -49,6 +50,9 @@ gulp.task('browser-sync', () => {
         port: 9001,
         https: true,
         open: false
+    }, () => {
+        let url = instance.getOption('urls').get('external');
+        qr.generate(url);
     });
 });
 
