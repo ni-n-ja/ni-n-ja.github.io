@@ -55,7 +55,7 @@ a {
     /* display: none; */
     background-color: rgba(251, 251, 251, 1);
     position: absolute;
-    width: 40mm;
+    width: 120mm;
     height: 25mm;
     z-index: 2;
 }

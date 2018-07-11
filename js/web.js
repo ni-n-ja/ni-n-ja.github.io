@@ -50,9 +50,10 @@ window.onload = () => {
         imageHeight = canvas.height;
         DOMURL.revokeObjectURL(svg);
         th = 0;
-        thPlus = 0.9;
+        thPlus = 10;
 
         noise();
+        tension += 80;
         fireNoise();
     }
 
@@ -63,12 +64,9 @@ function noise() {
     th %= 2 * Math.PI;
     th += thPlus;
     for (var i = 0; i < imageHeight;) {
-        height = parseInt(Math.random() * Math.random() * 30);
-        if (height <= 1) {
-            height = 1;
-        }
-        x = Math.sin((i / 100) * Math.PI + th * (0.5 - Math.random()) * Math.random() * 10) * 100 * (0.5 - Math.random());
-        scale = Math.exp(-1 * Math.pow(((i - (imageHeight / 2)) / (imageHeight / 2)), 2) / 0.3) * (Math.random() * Math.random());
+        height = 1 + (parseInt(Math.pow(Math.random(), 3) * 20)) % 3;
+        x = Math.sin((i / 100) * Math.PI + th * (0.5 - Math.random()) * Math.random() * 10) * 10 * (0.5 - Math.random());
+        scale = Math.exp(-1 * Math.pow(((i - (imageHeight / 2)) / (imageHeight / 2)), 2) / 0.5) * Math.pow(Math.random(), 2);
         x *= scale * tension;
         if (0.5 - Math.random() < 0) {
             x *= -1;
@@ -88,9 +86,9 @@ function noise() {
 }
 
 function fireNoise() {
-    tension += 50;
-    tension %= 360;
+    tension += 80;
+    tension %= 380;
     setTimeout(() => {
         fireNoise();
-    }, Math.random() * 3000);
+    }, Math.pow(Math.random(), 2) * 3600);
 }
