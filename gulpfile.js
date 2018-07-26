@@ -52,6 +52,7 @@ gulp.task('browser-sync', () => {
         open: false
     }, () => {
         let url = instance.getOption('urls').get('external');
+	if(url != null)
         qr.generate(url);
     });
 });
