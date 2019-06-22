@@ -1,6 +1,6 @@
 'use strict'
 
-const SW_VERSION_UUID = '761c6395-2013-451e-a95b-e8248caf7c01';
+const SW_VERSION_UUID = 'e20259b8-db5a-472f-8389-d03bc507ccab';
 
 const now = new Date(Date.now());
 const CACHE_NAME = now.getFullYear().toString() + "/" +

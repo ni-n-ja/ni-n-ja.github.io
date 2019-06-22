@@ -24,24 +24,26 @@ var generateUuid = () => {
 }
 
 
-gulp.task('replace', () => {
+gulp.task('replace', (done) => {
     gulp.src(['js/service-worker.js'])
         // .pipe(replace(/\'[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\'/g, '\'' + generateUuid() + '\''))
         .pipe(replace(/\'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx\'/g, '\'' + generateUuid() + '\''))
         .pipe(gulp.dest('./'));
+    done();
 });
 
 
-gulp.task('reviveSVG', () => {
-    del(['svg_minified/**/*.svg'], function (err, deleted) {
+gulp.task('reviveSVG', (done) => {
+    del(['svg_minified/**/*.svg'], (err, deleted) => {
         console.log('deleted: ' + deleted.join(','));
     });
     gulp.src('svg/**/*.svg')
         .pipe(svgmin())
         .pipe(gulp.dest('./svg_minified'));
+    done();
 });
 
-gulp.task('browser-sync', () => {
+gulp.task('browser-sync', (done) => {
     const instance = browserSync({
         files: ['js/**/*.js', '**/*.html', 'css/**/*.css', '!js/service-worker.js'],
         server: {
@@ -52,12 +54,17 @@ gulp.task('browser-sync', () => {
         open: false
     }, () => {
         let url = instance.getOption('urls').get('external');
-	if(url != null)
-        qr.generate(url);
+        if (url != null)
+            qr.generate(url);
     });
+    done();
 });
 
-gulp.task('default', ['replace', 'reviveSVG', 'browser-sync'], function () {
-    gulp.watch(['svg/**/*.svg'], ['reviveSVG', 'browser-sync']);
-    gulp.watch(['js/service-worker.js'], ['replace']);
+gulp.task('default', gulp.series('replace', 'reviveSVG', 'browser-sync'), (done) => {
+    gulp.watch(['svg/**/*.svg'], gulp.series('reviveSVG', 'browser-sync'));
+    gulp.watch(['js/service-worker.js'], gulp.task('replace'));
+    done();
 });
+
+
+// gulp.series(gulp.parallel('task1', 'task2')
