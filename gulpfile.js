@@ -65,6 +65,3 @@ gulp.task('default', gulp.series('replace', 'reviveSVG', 'browser-sync'), (done)
     gulp.watch(['js/service-worker.js'], gulp.task('replace'));
     done();
 });
-
-
-// gulp.series(gulp.parallel('task1', 'task2')
