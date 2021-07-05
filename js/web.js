@@ -28,11 +28,13 @@ window.onload = () => {
     canvas.width = 500;
     canvas.height = canvas.width * canvas.offsetHeight / canvas.offsetWidth;
     ctx = canvas.getContext("2d");
+    ctx.imageSmoothingEnabled = false
     let backCanvas = document.createElement('canvas');
     backCanvas.setAttribute('width', canvas.width + 'px');
     backCanvas.setAttribute('height', canvas.height + 'px');
     backCanvas.setAttribute('background-color', 'rgba(0,0,0,0)');
     backCtx = backCanvas.getContext("2d");
+    backCtx.imageSmoothingEnabled = false
 
     let DOMURL = self.URL || self.webkitURL || self;
     let svg = new Blob([qr.outerHTML], {

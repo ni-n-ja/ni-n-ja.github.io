@@ -1,96 +1,98 @@
 @charset "utf-8";
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    margin: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  filter: contrast(500%);
 }
 
 body {
-    background-color: #fbfbfb;
+  background-color: #fbfbfb;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 @media print {
-    #canvas {
-        display: none;
-    }
+  #canvas {
+    display: none;
+  }
 }
 
 .container {
-    position: relative;
-    margin: 0 auto;
-    width: 60mm;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  position: relative;
+  margin: 0 auto;
+  width: 60mm;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .QRcontainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 25mm;
-    height: 25mm;
-    margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 25mm;
+  height: 25mm;
+  margin: 0 auto;
 }
 
 #QR {
-    margin: 0;
-    width: 25mm;
-    height: 25mm;
+  margin: 0;
+  width: 25mm;
+  height: 25mm;
 }
 
 #canvas {
-    /* display: none; */
-    background-color: rgba(251, 251, 251, 1);
-    position: absolute;
-    width: 120mm;
-    height: 25mm;
-    z-index: 2;
+  /* display: none; */
+  background-color: rgba(251, 251, 251, 1);
+  position: absolute;
+  width: 120mm;
+  height: 25mm;
+  z-index: 2;
+  image-rendering: pixelated;
 }
 
 .svg {
-    fill: #252525;
+  fill: #252525;
 }
 
 .icons {
-    width: 40mm;
-    height: 45mm;
+  width: 40mm;
+  height: 45mm;
 }
 
 .icons {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
 }
 
 .icon {
-    height: 9mm;
-    width: 9mm;
+  height: 9mm;
+  width: 9mm;
 }
 
 #logo {
-    height: 45mm;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+  height: 45mm;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .logoimg {
-    height: 9mm;
+  height: 9mm;
 }
